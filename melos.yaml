@@ -1,0 +1,5 @@
+name: flutter_ddd_skeleton_monorepo
+
+packages:
+  - packages/**
+  - apps/**

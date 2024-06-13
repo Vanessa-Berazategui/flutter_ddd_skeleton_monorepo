@@ -1,0 +1,24 @@
+name: flutter_ddd_skeleton_monorepo_domain
+description: Flutter Ddd Skeleton Monorepo Flavoured Domain Layer.
+version: 0.1.0+1
+publish_to: none
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  dio: ^5.4.0
+  equatable: ^2.0.5
+  flutter:
+    sdk: flutter
+  freezed_annotation: ^2.2.0
+  json_annotation: ^4.7.0
+  meta: ^1.9.1
+
+dev_dependencies:
+  build_runner: ^2.3.0
+  freezed: ^2.2.0
+  import_sorter: ^4.6.0
+  json_serializable: ^6.5.4
+  mocktail: ^1.0.3
+  very_good_analysis: ^5.1.0

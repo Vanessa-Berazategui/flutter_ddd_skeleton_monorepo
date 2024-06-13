@@ -1,0 +1,3 @@
+[submodule "flutter_bricks"]
+	path = flutter_bricks
+	url = https://github.com/Vanessa-Berazategui/flutter_bricks.git

@@ -1,0 +1,7 @@
+bricks:
+  presentation_layer_package:
+    path: ../flutter_bricks/presentation_layer_package
+  data_layer_package:
+    path: ../flutter_bricks/data_layer_package
+  domain_layer_package:
+    path: ../flutter_bricks/domain_layer_package

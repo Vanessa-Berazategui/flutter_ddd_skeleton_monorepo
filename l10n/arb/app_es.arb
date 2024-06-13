@@ -1,0 +1,15 @@
+{
+    "@@locale": "es",
+    "counterAppBarTitle": "Contador",
+    "@counterAppBarTitle": {
+        "description": "Texto mostrado en la AppBar de la página del contador"
+    },
+    "counterEmptyCache": "Valor de contador no guardado",
+    "@counterEmptyCache": {
+        "description": "Texto mostrado cuando no hay ningun valor de contador salvado"
+    },
+    "counterEmptyQuiz": "No hay información para tu número",
+    "@counterEmptyQuiz": {
+        "description": "Text shown if there is no info for value"
+    }
+}
