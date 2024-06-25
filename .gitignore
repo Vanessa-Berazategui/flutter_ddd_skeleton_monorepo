@@ -41,6 +41,7 @@ unlinked.ds
 unlinked_spec.ds
 .fvm/
 
+
 # Android related
 **/android/**/gradle-wrapper.jar
 **/android/.gradle
@@ -85,6 +86,7 @@ unlinked_spec.ds
 
 # Coverage
 coverage/
+report/
 
 # Submodules
 packages/**/pubspec.lock
