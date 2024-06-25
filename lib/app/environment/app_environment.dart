@@ -20,4 +20,5 @@ abstract class AppEnvironment {
   static const dev = 'dev';
   static const stg = 'stg';
   static const prod = 'prod';
+  static const test = 'test';
 }

@@ -1,14 +1,18 @@
 // Project imports:
 import 'package:flutter_ddd_skeleton_monorepo_data/flutter_ddd_skeleton_monorepo_data.dart';
-import 'package:flutter_ddd_skeleton_monorepo_data/src/api/params/counter_data_params.dart';
 
-class CounterRemoteDataSource extends BaseDataSource {
-  const CounterRemoteDataSource({
+abstract class CounterRemoteDataSource extends BaseDataSource {
+  Future<String> quizCounter(CounterDataParams counterDataParams);
+}
+
+class CounterDataRemoteDataSource implements CounterRemoteDataSource {
+  const CounterDataRemoteDataSource({
     required this.api,
   });
 
   final FlutterDddSkeletonMonorepoApi api;
 
+  @override
   Future<String> quizCounter(CounterDataParams counterDataParams) async {
     final result = await api.quizCounter(
       number: counterDataParams.value,

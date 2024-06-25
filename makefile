@@ -51,13 +51,13 @@ splash: ## Generates native splash
 .PHONY: build_apk
 build_apk: ## Build Android mobile application form mode
 	@echo "╠ Building Android mobile application for mode $(mode) and flavour $(flavour)..."
-	fvm flutter build apk --flavor $(flavour) --$(mode) -t lib/main.dart --obfuscate --split-debug-info=./obfuscatation/debug
+	fvm flutter build apk --flavor $(flavour) --$(mode) -t lib/main_production.dart --obfuscate --split-debug-info=./obfuscatation/debug
 
 .PHONY: build_new_ipa
 build_new_ipa: ## Build mobile application for mode and flavour
 	@echo "╠ Building iOS mobile application for $(mode) and flavour $(flavour)..."
-	fvm flutter build ipa --flavor $(flavour) --$(mode) -t lib/main_production.dart 
-	## fvm flutter build ipa --flavor $(flavour) --$(mode) --export-options-plist=ios/ExportOptionsAppStore.plist -t lib/main_production.dart --obfuscate --split-debug-info=./obfuscatation/debug
+	fvm flutter build ipa --flavor $(flavour) --$(mode) -t lib/main_production.dart
+	## fvm flutter build ipa --flavor $(flavour) --$(mode) --export-options-plist=ios/ExportOptionsAppStore.plist -t lib/main_production.dart.dart --obfuscate --split-debug-info=./obfuscatation/debug
 
 PHONY: rebuild_ipa
 rebuild_ipa: ## Re Build mobile application for mode
@@ -67,17 +67,17 @@ rebuild_ipa: ## Re Build mobile application for mode
 .PHONY: build_web
 build_web: ## Build web application for mode
 	@echo "╠ Building web application for mode $(mode) and flavour $(flavour)..."
-	fvm flutter build web --flavor $(flavour) --$(mode) -t lib/main.dart --web-renderer canvaskit --dart-define=FLUTTER_WEB_USE_SKIA=true --dart-define=FLUTTER_WEB_CANVASKIT_URL=canvaskit/
+	fvm flutter build web --flavor $(flavour) --$(mode) lib/main_production.dart --web-renderer canvaskit --dart-define=FLUTTER_WEB_USE_SKIA=true --dart-define=FLUTTER_WEB_CANVASKIT_URL=canvaskit/
 
 .PHONY: build_win
 build_win: ## Build win application for mode
 	@echo "╠ Building windows application for $(mode) and flavour $(flavour)..."
-	fvm flutter build windows $(flavour) --$(mode) -t lib/main.dart 
+	fvm flutter build windows $(flavour) --$(mode) -t lib/main_production.dart 
 
 .PHONY: build_macos
 build_macos: ## Build macos application for mode
 	@echo "╠ Building macos application for $(mode) and flavour $(flavour)..."
-	fvm flutter build macos $(flavour) --$(mode) -t lib/main.dart 
+	fvm flutter build macos $(flavour) --$(mode) -t lib/main_production.dart 
 
 .PHONY: run
 run:
@@ -98,6 +98,19 @@ rename-app:
 sort: ## Sorting dependencies
 	@echo "╠ Sorting dependencies..."
 	fvm flutter pub run import_sorter:main
+
+.PHONY: test
+test: ## Executing test
+	@echo "╠ Executing unit test and widget test..."
+	fvm flutter test --coverage test/*
+	@echo "╠ Executing integration test..."
+	fvm flutter test --coverage integration_test/* 
+
+.PHONY: report_test
+report_test: ## Generate report test
+	@echo "╠ Generating report test..."
+	genhtml coverage/lcov.info -o report 
+	open report/index.html
 
 .PHONY: keystore
 keystore: keytool -genkey -v -keystore key.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias key	

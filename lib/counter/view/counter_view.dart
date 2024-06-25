@@ -71,6 +71,7 @@ class CounterView extends StatelessWidget {
                           ),
                           padding: const EdgeInsets.all(16),
                           child: Text(
+                            key: const Key('quiz'),
                             state.quiz.toUpperCase(),
                             style: theme.textTheme.bodyLarge
                                 ?.copyWith(color: colors.onPrimary),

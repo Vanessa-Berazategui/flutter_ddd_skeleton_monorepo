@@ -42,3 +42,14 @@ fix: ## Fixing the code
 sort: ## Sorting dependencies
 	@echo "╠ Sorting dependencies..."
 	fvm flutter pub run import_sorter:main	
+
+.PHONY: test
+test: ## Executing test
+	@echo "╠ Executing test..."
+	fvm flutter test --coverage test/* 
+	
+.PHONY: report_test
+report_test: ## Generate report test
+	@echo "╠ Generating report test..."
+	genhtml coverage/lcov.info -o report 
+	open report/index.html
