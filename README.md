@@ -24,6 +24,6 @@ Also in this ready to go DDD skeleton is configured:
 * Getit injection dependencies.
 * Go router route solution.
 * Flutter code generator for your asset.
-* Flutter gherkin integration test.
+* Flutter unit, widget and integration test.
 * FVM configuration.
 * Makefile for useful commands.
